@@ -29,4 +29,4 @@ gcloud pubsub topics create temp-topic \
 --schema=temperature-schema \
 --message-encoding=JSON 
 git clone https://github.com/CodingWithHardik/ARC113.git
-cd ARC113/helloPubSub
+sleep 180
