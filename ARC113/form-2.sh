@@ -33,6 +33,8 @@ sleep 1020
 cd ~/ARC113/helloPubSub
 gcloud functions deploy gcf-pubsub \
 --trigger-topic=gcf-topic \
---runtime=nodejs16 \
+--runtime=nodejs18 \
 --entry-point=helloPubSub \
---region=$REGION
+--region=$REGION \
+--max-instances=1 \
+--source=.
