@@ -46,7 +46,7 @@ while true; do
     --region=$REGION \
     --max-instances=1 \
     --source=. 2>&1)
-  if echo "$deployment_result" | grep -q "Function deployed successfully"; then
+  if echo "$deployment_result" | grep -q "status: ACTIVE"; then
     echo "Cloud function deployed successfully Cloud Hustlers"
     break
   else
