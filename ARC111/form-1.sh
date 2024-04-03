@@ -1,5 +1,5 @@
 gcloud config set compute/region $REGION
-gsutil mb gs://qwiklabs-gcp-03-bd78fd3b331d-bucket
-gsutil retention set 30s "gs://qwiklabs-gcp-03-bd78fd3b331d-gcs-bucket"
+gsutil mb gs://$DEVSHELL_PROJECT_ID-bucket
+gsutil retention set 30s "gs://$DEVSHELL_PROJECT_ID-gcs-bucket"
 echo "CloudHustlers" > developers.txt
-gsutil cp developers.txt gs://qwiklabs-gcp-03-bd78fd3b331d-bucket-ops
+gsutil cp developers.txt gs://$DEVSHELL_PROJECT_ID-bucket-ops
