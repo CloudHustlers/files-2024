@@ -1,3 +1,11 @@
+gcloud services enable \
+  artifactregistry.googleapis.com \
+  cloudfunctions.googleapis.com \
+  cloudbuild.googleapis.com \
+  eventarc.googleapis.com \
+  run.googleapis.com \
+  logging.googleapis.com \
+  pubsub.googleapis.com
 cat > city_temp_schema.avsc << EOF
 {                                             
             "type" : "record",                               
