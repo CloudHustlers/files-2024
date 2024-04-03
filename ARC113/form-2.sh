@@ -38,10 +38,19 @@ gcloud pubsub topics create temp-topic \
 --message-encoding=JSON 
 git clone https://github.com/CodingWithHardik/ARC113.git
 cd ~/ARC113/helloPubSub
-gcloud functions deploy gcf-pubsub \
---trigger-topic=gcf-topic \
---runtime=nodejs18 \
---entry-point=helloPubSub \
---region=$REGION \
---max-instances=1 \
---source=.
+while true; do
+  deployment_result=$(gcloud functions deploy gcf-pubsub \
+    --trigger-topic=gcf-topic \
+    --runtime=nodejs18 \
+    --entry-point=helloPubSub \
+    --region=$REGION \
+    --max-instances=1 \
+    --source=. 2>&1)
+  if echo "$deployment_result" | grep -q "status: ACTIVE"; then
+    echo "Cloud function deployed successfully Cloud Hustlers"
+    break
+  else
+    echo "Retrying in 5 seconds..."
+    sleep 5
+  fi
+done
